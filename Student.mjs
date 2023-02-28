@@ -1,28 +1,26 @@
 class Student {
-  static #nextId = 0;
-  #id;
-  #graduated;
+  static nextId = 0;
 
   constructor(name) {
     this.name = name;
-    this.#id = Student.#nextId++;
-    this.#graduated = false;
+    this._id = Student.nextId++;
+    this.graduated = false;
   }
 
   get id() {
-    return this.#id;
+    return this._id;
   }
 
-  setClass(hyfClass) {
-    this.hyfClass = hyfClass;
+  setClass(className) {
+    this.className = className;
   }
 
   isActive() {
-    return this.hyfClass && this.hyfClass.isActive();
+    return this.className && this.className.isActive();
   }
 
   isGraduated() {
-    return this.hyfClass?.isGraduated && this.#graduated;
+    return this.className?.isGraduated && this.graduated;
   }
 
   graduate() {
@@ -31,7 +29,7 @@ class Student {
 
   toString() {
     let text = this.name;
-    if (this.hyfClass?.isGraduated()) {
+    if (this.className?.isGraduated()) {
       text += this.isGraduated() ? ', graduated' : ', not graduated';
     }
     return text;
