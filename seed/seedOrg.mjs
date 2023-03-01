@@ -1,6 +1,6 @@
 import { classes, students, mentors } from './seedData.mjs';
-import HyfClass from './HyfClass.mjs';
-import Student from './Student.mjs';
+import HyfClass from '../HyfClass.mjs';
+import Student from '../Student.mjs';
 
 function createClass({ name, startDate, graduationDate, currentModule }) {
   const hyfClass = new HyfClass({ name, startDate });
@@ -13,23 +13,30 @@ function createClass({ name, startDate, graduationDate, currentModule }) {
   return hyfClass;
 }
 
-function createStudent({ name, className, graduated }) {
+function createStudent({ name, graduated }) {
   const student = new Student(name);
-  student.className = className;
   student.graduated = graduated;
   return student;
 }
 
-function seedRoster(roster) {
+function seedOrg(org) {
   classes.forEach((classData) => {
     const hyfClass = createClass(classData);
-    roster.addClass(hyfClass);
+    org.addClass(hyfClass);
   });
 
   students.forEach((studentData) => {
     const student = createStudent(studentData);
-    roster.addStudent(student, { seed: true });
+    const hyfClass = org.classes.find(
+      (cls) => cls.name === studentData.className
+    );
+    if (!hyfClass) {
+      throw new Error(
+        `Cannot add student ${student.name} to non-existing class ${studentData.className} `
+      );
+    }
+    hyfClass.addStudent(student, { seed: true });
   });
 }
 
-export default seedRoster;
+export default seedOrg;

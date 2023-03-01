@@ -1,10 +1,8 @@
-import StudentContainer from './StudentContainer.mjs';
-
 class HyfClass {
   constructor({ name, startDate }) {
     this.name = name;
     this.startDate = new Date(startDate);
-    this.studentContainer = new StudentContainer(name);
+    this.students = [];
   }
 
   isActive() {
@@ -30,14 +28,24 @@ class HyfClass {
   }
 
   addStudent(student, { seed = false }) {
-    if (!seed && bthis.isGraduated()) {
+    if (!seed && this.isGraduated()) {
       console.error(
         `Cannot add student ${student.name} to graduated class ${this.name}.`
       );
       return;
     }
-    this.studentContainer.addStudent(student);
-    student.setClass(this);
+
+    if (!this.students.find((s) => s.id === student.id)) {
+      this.students = [...this.students, student];
+      student.setClass(this);
+      console.log(
+        `Student ${student.name} has been added to ${this.displayName}.`
+      );
+    } else {
+      console.error(
+        `Student ${student.name} is already member of ${this.displayName}.`
+      );
+    }
   }
 
   removeStudent(student) {
@@ -45,7 +53,19 @@ class HyfClass {
       console.error(`Cannot remove students from a graduated class.`);
       return;
     }
-    this.studentContainer.removeStudent(student);
+
+    if (!this.students.find((s) => s.id === student.id)) {
+      console.error(
+        `Student ${student.name} is not a member of ${this.displayName}.`
+      );
+      return;
+    }
+
+    this.students = this.students.filter((s) => s.id !== student.id);
+    student.setClass(null);
+    console.log(
+      `Student ${student.name} has been removed from class ${this.displayName}.`
+    );
   }
 
   toString() {
@@ -53,10 +73,12 @@ class HyfClass {
     lines.push(`Class: ${this.name}`);
     lines.push(`Active? ${this.isActive() ? 'Yes' : 'No'}`);
     if (this.isGraduated()) {
-      lines.push(`Graduated: ${this.graduationDate.toLocaleDateString()}`);
+      lines.push(
+        `Graduation date: ${this.graduationDate.toLocaleDateString()}`
+      );
     }
     lines.push('Students:');
-    this.studentContainer.forEach((student) => {
+    this.students.forEach((student) => {
       lines.push(`- ${student.toString()}`);
     });
     return lines.join('\n');

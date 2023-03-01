@@ -1,24 +1,23 @@
 import Student from './Student.mjs';
 import HyfClass from './HyfClass.mjs';
-import HyfRoster from './HyfRoster.mjs';
+import HyfOrganization from './HyfOrganization.mjs';
 
-import seedRoster from './seedRoster.mjs';
+import seedOrg from './seed/seedOrg.mjs';
 
 function addYourClass() {
-  // TODO add your class to the HYF Roster
+  // TODO add your class to the HYF organization
   // 1. Create a HyfClass object
   // 2. Create a Student object for each student (including yourself) in your class,
-  // 3.
+  // 3. Add the students to the class
 }
 
 function main() {
-  const roster = new HyfRoster();
-  seedRoster(roster);
+  const hygOrg = new HyfOrganization();
+  seedOrg(hygOrg);
 
   addYourClass();
 
-  // roster.listAllActiveClasses();
-  console.log(roster.toString());
+  console.log(hygOrg.toString());
 }
 
 main();

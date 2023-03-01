@@ -11,16 +11,16 @@ class Student {
     return this._id;
   }
 
-  setClass(className) {
-    this.className = className;
+  setClass(hyfClass) {
+    this.hyfClass = hyfClass;
   }
 
   isActive() {
-    return this.className && this.className.isActive();
+    return this.hyfClass && this.hyfClass.isActive();
   }
 
   isGraduated() {
-    return this.className?.isGraduated && this.graduated;
+    return this.hyfClass?.isGraduated() && this.graduated;
   }
 
   graduate() {
@@ -29,7 +29,7 @@ class Student {
 
   toString() {
     let text = this.name;
-    if (this.className?.isGraduated()) {
+    if (this.hyfClass?.isGraduated()) {
       text += this.isGraduated() ? ', graduated' : ', not graduated';
     }
     return text;
