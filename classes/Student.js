@@ -31,7 +31,7 @@ class Student {
     return {
       id: this._id,
       name: this.name,
-      graduate: this.graduated,
+      graduated: this.graduated,
     };
   }
 }

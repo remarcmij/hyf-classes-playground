@@ -53,7 +53,6 @@ class HyfClass {
       throw new Error(
         `Student ${student.name} is not a member of ${this.name}.`
       );
-      return;
     }
 
     this.students = this.students.filter((s) => s.id !== student.id);
@@ -63,10 +62,11 @@ class HyfClass {
   toObject() {
     const students = this.students.map((student) => student.toObject());
     return {
-      name: this.name,
-      startDate: this.startDate,
-      graduationDate: this.graduationDate,
-      students,
+      [this.name]: {
+        startDate: this.startDate,
+        graduationDate: this.graduationDate,
+        students,
+      },
     };
   }
 }
