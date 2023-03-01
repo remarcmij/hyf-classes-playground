@@ -31,10 +31,6 @@ class HyfOrganization {
   demoteStudent(student) {
     // TODO
   }
-
-  toObject() {
-    return this.classes.map((cls) => cls.toObject());
-  }
 }
 
 export default HyfOrganization;

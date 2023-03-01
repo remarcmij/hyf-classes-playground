@@ -1,23 +1,12 @@
-import Student from './Student.mjs';
-import HyfClass from './classes/HyfClass.js';
-import HyfOrganization from './HyfOrganization.js';
+import util from 'util';
 
-import seedOrg from './seed/seedOrg.mjs';
-
-function addYourClass() {
-  // TODO add your class to the HYF organization
-  // 1. Create a HyfClass object
-  // 2. Create a Student object for each student (including yourself) in your class,
-  // 3. Add the students to the class
-}
+import HyfOrganization from './classes/HyfOrganization.js';
+import seedOrg from './seed/seedOrg.js';
 
 function main() {
-  const hygOrg = new HyfOrganization();
-  seedOrg(hygOrg);
-
-  addYourClass();
-
-  console.log(hygOrg.toString());
+  const hyfOrg = new HyfOrganization();
+  seedOrg(hyfOrg);
+  console.log(util.inspect(hyfOrg, null, Infinity));
 }
 
 main();

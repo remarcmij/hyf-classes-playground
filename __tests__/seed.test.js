@@ -3,16 +3,15 @@ import HyfOrganization from '../classes/HyfOrganization.js';
 import util from 'util';
 
 describe('HYF Organization', () => {
-  let hyfOrgObject;
+  let hyfOrg;
 
   beforeEach(() => {
-    const hyfOrg = new HyfOrganization();
+    hyfOrg = new HyfOrganization();
     seedOrg(hyfOrg);
-    hyfOrgObject = hyfOrg.toObject();
   });
 
   test('Fede should ', () => {
-    console.log(util.inspect(hyfOrgObject, false, Infinity));
+    console.log(util.inspect(hyfOrg, false, Infinity));
     expect(1).toBe(1);
   });
 });

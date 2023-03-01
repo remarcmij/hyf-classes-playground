@@ -1,9 +1,9 @@
-class Student {
+class HyfStudent {
   static nextId = 0;
 
   constructor(name) {
     this.name = name;
-    this._id = Student.nextId++;
+    this._id = HyfStudent.nextId++;
     this.graduated = false;
   }
 
@@ -26,14 +26,6 @@ class Student {
   graduate() {
     this.graduated = true;
   }
-
-  toObject() {
-    return {
-      id: this._id,
-      name: this.name,
-      graduated: this.graduated,
-    };
-  }
 }
 
-export default Student;
+export default HyfStudent;

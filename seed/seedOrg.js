@@ -1,6 +1,6 @@
 import { classes, students, mentors } from './seedData.js';
 import HyfClass from '../classes/HyfClass.js';
-import Student from '../classes/Student.js';
+import HyfStudent from '../classes/HyfStudent.js';
 
 function createClass({ name, startDate, graduationDate, currentModule }) {
   const hyfClass = new HyfClass({ name, startDate });
@@ -14,7 +14,7 @@ function createClass({ name, startDate, graduationDate, currentModule }) {
 }
 
 function createStudent({ name, graduated }) {
-  const student = new Student(name);
+  const student = new HyfStudent(name);
   student.graduated = graduated;
   return student;
 }

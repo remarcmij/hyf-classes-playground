@@ -58,17 +58,6 @@ class HyfClass {
     this.students = this.students.filter((s) => s.id !== student.id);
     student.setClass(null);
   }
-
-  toObject() {
-    const students = this.students.map((student) => student.toObject());
-    return {
-      [this.name]: {
-        startDate: this.startDate,
-        graduationDate: this.graduationDate,
-        students,
-      },
-    };
-  }
 }
 
 export default HyfClass;
