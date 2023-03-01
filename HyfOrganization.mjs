@@ -16,6 +16,18 @@ class HyfOrganization {
     }
   }
 
+  findStudent(name) {
+    // TODO
+  }
+
+  promoteStudent(student) {
+    // TODO
+  }
+
+  demotewStudent(student) {
+    // TODO
+  }
+
   toString() {
     const lines = [];
 
