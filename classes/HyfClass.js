@@ -8,14 +8,14 @@ class HyfClass {
   isActive() {
     // If a graduation date has been set AND it lies in the past then
     // this class is no longer active.
-    if (this.graduationDate && this.graduationDate.getTime() < Date.now()) {
+    if (this.graduationDate?.getTime() < Date.now()) {
       return false;
     }
     // If the start date lies in the future then this class is not yet active.
     if (this.startDate.getTime() > Date.now()) {
       return false;
     }
-    // In all other cases it is active.
+    // If none of the above then it is active.
     return true;
   }
 
@@ -24,7 +24,7 @@ class HyfClass {
   }
 
   isGraduated() {
-    return this.graduationDate && this.graduationDate.getTime() < Date.now();
+    return this.graduationDate?.graduationDate.getTime() < Date.now();
   }
 
   addStudent(student, { seed = false }) {
