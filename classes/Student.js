@@ -27,12 +27,12 @@ class Student {
     this.graduated = true;
   }
 
-  toString() {
-    let text = this.name;
-    if (this.hyfClass?.isGraduated()) {
-      text += this.isGraduated() ? ', graduated' : ', not graduated';
-    }
-    return text;
+  toObject() {
+    return {
+      id: this._id,
+      name: this.name,
+      graduate: this.graduated,
+    };
   }
 }
 

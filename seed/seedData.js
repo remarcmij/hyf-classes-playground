@@ -77,7 +77,7 @@ export const mentors = [
   },
   {
     name: 'Rohan',
-    canTeach: ['html/css/git', 'javascript', 'node'],
+    canTeach: ['html-css', 'javascript', 'node'],
   },
   {
     name: 'Collin',

@@ -1,6 +1,6 @@
-import { classes, students, mentors } from './seedData.mjs';
-import HyfClass from '../HyfClass.mjs';
-import Student from '../Student.mjs';
+import { classes, students, mentors } from './seedData.js';
+import HyfClass from '../classes/HyfClass.js';
+import Student from '../classes/Student.js';
 
 function createClass({ name, startDate, graduationDate, currentModule }) {
   const hyfClass = new HyfClass({ name, startDate });

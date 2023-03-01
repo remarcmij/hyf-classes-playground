@@ -6,36 +6,34 @@ class HyfOrganization {
   addClass(hyfClass) {
     if (!this.classes.find((cls) => cls.name === hyfClass.name)) {
       this.classes = [...this.classes, hyfClass];
-      console.log(
-        `Class ${hyfClass.name} has been added to the HYF organization.`
-      );
     } else {
-      console.error(
+      throw new Error(
         `Class ${hyfClass.name} is already present in the HYF organization.`
       );
     }
   }
 
   findStudent(name) {
-    // TODO
+    let student = null;
+    for (const cls of classes) {
+      student = cls.students.find((s) => s.name === name);
+      if (student) {
+        break;
+      }
+    }
+    return student;
   }
 
   promoteStudent(student) {
     // TODO
   }
 
-  demotewStudent(student) {
+  demoteStudent(student) {
     // TODO
   }
 
-  toString() {
-    const lines = [];
-
-    this.classes.forEach((cls) => {
-      lines.push('--------------');
-      lines.push(cls.toString());
-    });
-    return lines.join('\n');
+  toObject() {
+    return this.classes.map((cls) => cls.toObject());
   }
 }
 

@@ -1,0 +1,28 @@
+{
+  "name": "hyf-classes-playground",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/remarcmij/hyf-classes-playground.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/remarcmij/hyf-classes-playground/issues"
+  },
+  "homepage": "https://github.com/remarcmij/hyf-classes-playground#readme",
+  "dependencies": {
+    "@babel/preset-env": "^7.20.2",
+    "babel-jest": "^29.4.3",
+    "eslint": "^8.35.0",
+    "jest": "^29.4.3",
+    "prettier": "^2.8.4"
+  }
+}

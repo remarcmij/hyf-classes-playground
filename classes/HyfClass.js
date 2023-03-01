@@ -29,59 +29,45 @@ class HyfClass {
 
   addStudent(student, { seed = false }) {
     if (!seed && this.isGraduated()) {
-      console.error(
+      throw new Error(
         `Cannot add student ${student.name} to graduated class ${this.name}.`
       );
-      return;
     }
 
     if (!this.students.find((s) => s.id === student.id)) {
       this.students = [...this.students, student];
       student.setClass(this);
-      console.log(
-        `Student ${student.name} has been added to ${this.displayName}.`
-      );
     } else {
-      console.error(
-        `Student ${student.name} is already member of ${this.displayName}.`
+      throw new Error(
+        `Student ${student.name} is already member of ${this.name}.`
       );
     }
   }
 
   removeStudent(student) {
     if (this.isGraduated()) {
-      console.error(`Cannot remove students from a graduated class.`);
-      return;
+      throw new Error(`Cannot remove students from a graduated class.`);
     }
 
     if (!this.students.find((s) => s.id === student.id)) {
-      console.error(
-        `Student ${student.name} is not a member of ${this.displayName}.`
+      throw new Error(
+        `Student ${student.name} is not a member of ${this.name}.`
       );
       return;
     }
 
     this.students = this.students.filter((s) => s.id !== student.id);
     student.setClass(null);
-    console.log(
-      `Student ${student.name} has been removed from class ${this.displayName}.`
-    );
   }
 
-  toString() {
-    const lines = [];
-    lines.push(`Class: ${this.name}`);
-    lines.push(`Active? ${this.isActive() ? 'Yes' : 'No'}`);
-    if (this.isGraduated()) {
-      lines.push(
-        `Graduation date: ${this.graduationDate.toLocaleDateString()}`
-      );
-    }
-    lines.push('Students:');
-    this.students.forEach((student) => {
-      lines.push(`- ${student.toString()}`);
-    });
-    return lines.join('\n');
+  toObject() {
+    const students = this.students.map((student) => student.toObject());
+    return {
+      name: this.name,
+      startDate: this.startDate,
+      graduationDate: this.graduationDate,
+      students,
+    };
   }
 }
 

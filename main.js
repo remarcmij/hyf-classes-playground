@@ -1,6 +1,6 @@
 import Student from './Student.mjs';
-import HyfClass from './HyfClass.mjs';
-import HyfOrganization from './HyfOrganization.mjs';
+import HyfClass from './classes/HyfClass.js';
+import HyfOrganization from './HyfOrganization.js';
 
 import seedOrg from './seed/seedOrg.mjs';
 
