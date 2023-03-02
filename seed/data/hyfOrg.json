@@ -1,0 +1,66 @@
+{
+  "modules": [
+    { "name": "html-css", "displayName": "HTML/CSS" },
+    { "name": "javascript", "displayName": "JavaScript" },
+    { "name": "browsers", "displayName": "Browsers" },
+    { "name": "using-apis", "displayName": "Using APIs" },
+    { "name": "node", "displayName": "Node.js" },
+    { "name": "databases", "displayName": "Databases" },
+    { "name": "react", "displayName": "React" },
+    { "name": "project", "displayName": "Project" }
+  ],
+  "classes": [
+    {
+      "name": "class32",
+      "startDate": "2021-2-23",
+      "graduationDate": "2021-11-7"
+    },
+    {
+      "name": "class33",
+      "startDate": "2021-5-28",
+      "graduationDate": "2021-11-7"
+    },
+    {
+      "name": "class34",
+      "startDate": "2021-9-2",
+      "graduationDate": "2022-4-2"
+    },
+    {
+      "name": "class35",
+      "startDate": "2021-11-14",
+      "graduationDate": "2021-06-14"
+    },
+    {
+      "name": "class36",
+      "startDate": "2022-1-5"
+    }
+  ],
+  "mentors": [
+    {
+      "name": "Stas",
+      "canTeach": ["javascript", "browsers", "using-apis"],
+      "nowTeaching": "javascript"
+    },
+    {
+      "name": "Andrej",
+      "canTeach": ["using-apis", "node"]
+    },
+    {
+      "name": "Shriyans",
+      "canTeach": ["react"],
+      "nowTeaching": "react"
+    },
+    {
+      "name": "Yash",
+      "canTeach": ["javascript", "using-apis"]
+    },
+    {
+      "name": "Rohan",
+      "canTeach": ["html-css", "javascript", "node"]
+    },
+    {
+      "name": "Collin",
+      "canTeach": ["browsers", "using-apis", "node"]
+    }
+  ]
+}

@@ -1,11 +1,11 @@
 import util from 'util';
 
 import HyfOrganization from './classes/HyfOrganization.js';
-import seedOrg from './seed/seedOrg.js';
+import loadHyfOrg from './seed/loadHyfOrg.js';
 
 function main() {
   const hyfOrg = new HyfOrganization();
-  seedOrg(hyfOrg);
+  loadHyfOrg(hyfOrg);
   console.log(util.inspect(hyfOrg, null, Infinity));
 }
 

@@ -1,4 +1,4 @@
-import seedOrg from '../seed/seedOrg.js';
+import loadHyfOrg from '../seed/loadHyfOrg.js';
 import HyfOrganization from '../classes/HyfOrganization.js';
 import util from 'util';
 
@@ -7,7 +7,7 @@ describe('HYF Organization', () => {
 
   beforeAll(() => {
     hyfOrg = new HyfOrganization();
-    seedOrg(hyfOrg);
+    loadHyfOrg(hyfOrg);
   });
 
   test('Fede should ', () => {

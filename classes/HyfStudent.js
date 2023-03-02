@@ -4,7 +4,8 @@ class HyfStudent {
   constructor(name, id) {
     this.name = name;
     this._id = id ?? HyfStudent.nextId++;
-    this._graduated = null;
+    this.hyfClass = null;
+    this.graduated = null;
   }
 
   get id() {
@@ -20,7 +21,7 @@ class HyfStudent {
   }
 
   isGraduated() {
-    return !!(this.hyfClass?.isGraduated() && this._graduated);
+    return !!(this.hyfClass?.isGraduated() && this.graduated);
   }
 
   graduateStudent() {
@@ -29,7 +30,7 @@ class HyfStudent {
         `Cannot graduate student ${this.name}: ${this.hyfClass} has not graduated yet.`
       );
     }
-    this._graduated = true;
+    this.graduated = true;
   }
 }
 

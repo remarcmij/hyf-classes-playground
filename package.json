@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "test": "jest",
-    "dump": "node dump.js"
+    "dump": "node dump.js",
+    "postinstall": "node ./seed/seedStudents.js"
   },
   "repository": {
     "type": "git",
