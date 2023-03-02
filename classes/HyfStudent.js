@@ -1,10 +1,10 @@
 class HyfStudent {
   static nextId = 0;
 
-  constructor(name) {
+  constructor(name, id) {
     this.name = name;
-    this._id = HyfStudent.nextId++;
-    this.graduated = false;
+    this._id = id ?? HyfStudent.nextId++;
+    this._graduated = null;
   }
 
   get id() {
@@ -16,15 +16,20 @@ class HyfStudent {
   }
 
   isActive() {
-    return this.hyfClass && this.hyfClass.isActive();
+    return !!(this.hyfClass && this.hyfClass.isActive());
   }
 
   isGraduated() {
-    return this.hyfClass?.isGraduated() && this.graduated;
+    return !!(this.hyfClass?.isGraduated() && this._graduated);
   }
 
-  graduate() {
-    this.graduated = true;
+  graduateStudent() {
+    if (!this.hyfClass?.isGraduated()) {
+      throw new Error(
+        `Cannot graduate student ${this.name}: ${this.hyfClass} has not graduated yet.`
+      );
+    }
+    this._graduated = true;
   }
 }
 

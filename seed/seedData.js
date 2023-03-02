@@ -33,26 +33,7 @@ export const classes = [
   {
     name: 'class36',
     startDate: '2022-1-5',
-    graduationDate: '2021-8-5',
-  },
-];
-
-export const students = [
-  {
-    name: 'Fede',
-    className: 'class33',
-    graduated: true,
-  },
-  {
-    name: 'Tjebbe',
-    className: 'class32',
-    graduated: false,
-  },
-  { name: 'Rob', className: 'class34', gitHubName: 'robvk', graduated: true },
-  {
-    name: 'Wouter',
-    className: 'class35',
-    graduated: false,
+    // graduationDate: '2021-8-5',
   },
 ];
 

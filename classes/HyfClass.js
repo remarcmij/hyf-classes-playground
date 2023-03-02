@@ -24,7 +24,7 @@ class HyfClass {
   }
 
   isGraduated() {
-    return this.graduationDate?.graduationDate.getTime() < Date.now();
+    return this.graduationDate?.getTime() < Date.now();
   }
 
   addStudent(student, { seed = false }) {

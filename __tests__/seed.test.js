@@ -5,13 +5,13 @@ import util from 'util';
 describe('HYF Organization', () => {
   let hyfOrg;
 
-  beforeEach(() => {
+  beforeAll(() => {
     hyfOrg = new HyfOrganization();
     seedOrg(hyfOrg);
   });
 
   test('Fede should ', () => {
-    console.log(util.inspect(hyfOrg, false, Infinity));
+    // console.log(util.inspect(hyfOrg, false, Infinity));
     expect(1).toBe(1);
   });
 });
