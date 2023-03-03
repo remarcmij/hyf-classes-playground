@@ -12,13 +12,17 @@ class HyfOrganization {
   }
 
   addClass(hyfClass) {
-    if (!this.classes.find((cls) => cls.name === hyfClass.name)) {
+    if (!this.findClass(hyfClass.name)) {
       this.classes = [...this.classes, hyfClass];
     } else {
       throw new Error(
         `Class ${hyfClass.name} is already present in the HYF organization.`
       );
     }
+  }
+
+  findClass(name) {
+    return this.classes.find((cls) => cls.name === name);
   }
 
   findStudentsByName(name) {
