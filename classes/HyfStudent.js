@@ -12,6 +12,10 @@ class HyfStudent {
     return this._id;
   }
 
+  get upperCaseName() {
+    return this.name.toUpperCase();
+  }
+
   setClass(hyfClass) {
     this.hyfClass = hyfClass;
   }

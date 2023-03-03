@@ -58,6 +58,18 @@ class HyfClass {
     this.students = this.students.filter((s) => s.id !== student.id);
     student.setClass(null);
   }
+
+  findStudentsByName(partialName) {
+    // Make search case-insensitive
+    const partialUpperCaseName = partialName.toUpperCase();
+    return this.students.filter((student) =>
+      student.upperCaseName.includes(partialUpperCaseName)
+    );
+  }
+
+  findStudentById(id) {
+    return this.students.find((student) => student.id === id);
+  }
 }
 
 export default HyfClass;

@@ -1,4 +1,12 @@
+import loadHyfOrg from '../seed/loadHyfOrg.js';
+
 class HyfOrganization {
+  static createSeeded() {
+    const hyfOrg = new HyfOrganization();
+    loadHyfOrg(hyfOrg);
+    return hyfOrg;
+  }
+
   constructor() {
     this.classes = [];
   }
@@ -13,10 +21,18 @@ class HyfOrganization {
     }
   }
 
-  findStudent(name) {
+  findStudentsByName(name) {
+    let students = [];
+    for (const cls of this.classes) {
+      students = [...students, ...cls.findStudentsByName(name)];
+    }
+    return students;
+  }
+
+  findStudentById(id) {
     let student = null;
-    for (const cls of classes) {
-      student = cls.students.find((s) => s.name === name);
+    for (const cls of this.classes) {
+      student = cls.findStudentById(id);
       if (student) {
         break;
       }
