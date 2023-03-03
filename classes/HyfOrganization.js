@@ -1,9 +1,9 @@
-import loadHyfOrg from '../seed/loadHyfOrg.js';
+import seedAll from '../seed/loadData.js';
 
 class HyfOrganization {
   static createSeeded() {
     const hyfOrg = new HyfOrganization();
-    loadHyfOrg(hyfOrg);
+    seedAll(hyfOrg);
     return hyfOrg;
   }
 

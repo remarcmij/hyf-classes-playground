@@ -8,13 +8,10 @@ function loadJSON(filename) {
   return JSON.parse(json);
 }
 
-function createClass({ name, startDate, graduationDate, currentModule }) {
-  const hyfClass = new HyfClass({ name, startDate });
+function createClass({ name, startDate, graduationDate }) {
+  const hyfClass = new HyfClass(name, startDate);
   if (graduationDate) {
     hyfClass.graduationDate = new Date(graduationDate);
-  }
-  if (currentModule) {
-    hyfClass.currentModule = currentModule;
   }
   return hyfClass;
 }
@@ -25,9 +22,9 @@ function createStudent({ name, graduated, id }) {
   return student;
 }
 
-function loadHyfOrg(org) {
-  const { modules, classes, mentors } = loadJSON('./seed/data/hyfOrg.json');
-  const students = loadJSON('./seed/data/students.json');
+function seedAll(org) {
+  const { modules, mentors } = loadJSON('./seed/data/hyfOrg.json');
+  const { classes, students } = loadJSON('./seed/data/fakeData.json');
 
   for (const classData of classes) {
     const hyfClass = createClass(classData);
@@ -48,4 +45,4 @@ function loadHyfOrg(org) {
   });
 }
 
-export default loadHyfOrg;
+export default seedAll;

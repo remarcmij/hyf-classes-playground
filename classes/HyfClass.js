@@ -1,7 +1,7 @@
 class HyfClass {
-  constructor({ name, startDate }) {
+  constructor(name, startDate) {
     this.name = name;
-    this.startDate = new Date(startDate);
+    this.startDate = startDate;
     this.students = [];
   }
 
