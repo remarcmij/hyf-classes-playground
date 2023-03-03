@@ -1,5 +1,3 @@
-import util from 'util';
-
 import HyfOrganization from './classes/HyfOrganization.js';
 
 function main() {
