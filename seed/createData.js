@@ -2,6 +2,7 @@ import fs from 'fs';
 import moment from 'moment';
 import { faker } from '@faker-js/faker';
 import HyfClass from '../classes/HyfClass.js';
+import HyfStudent from '../classes/HyfStudent.js';
 
 const CURRICULUM_DURATION_MONTHS = 7;
 const CLASS_INTERVAL_MONTHS = 3;
@@ -39,15 +40,11 @@ function createFakeClasses(highestClassNumber, numberOfClasses) {
 function createFakeStudents(classes) {
   const students = [];
 
-  for (const classData of classes) {
+  for (const cls of classes) {
     for (let i = 0; i < STUDENTS_PER_CLASS; i++) {
-      const student = {
-        name: faker.internet.userName(),
-        id: faker.datatype.uuid(),
-        className: classData.name,
-        graduated: null,
-      };
-      if (classData.graduationDate) {
+      const student = new HyfStudent(faker.internet.userName());
+      student.className = cls.name;
+      if (cls.graduationDate) {
         student.graduated = Math.random() < GRADUATION_FACTOR;
       }
       students.push(student);

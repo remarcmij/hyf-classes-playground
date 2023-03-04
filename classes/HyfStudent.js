@@ -1,9 +1,9 @@
-class HyfStudent {
-  static nextId = 0;
+import { v4 as uuidv4 } from 'uuid';
 
-  constructor(name, id) {
+class HyfStudent {
+  constructor(name) {
     this.name = name;
-    this._id = id ?? HyfStudent.nextId++;
+    this._id = uuidv4();
     this.hyfClass = null;
     this.graduated = null;
   }
