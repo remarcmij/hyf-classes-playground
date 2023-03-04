@@ -34,7 +34,7 @@ class HyfClass {
       );
     }
 
-    if (!this.students.find((s) => s.id === student.id)) {
+    if (!this.students.find((s) => s.name === student.name)) {
       this.students = [...this.students, student];
       student.setClass(this);
     } else {
@@ -49,13 +49,13 @@ class HyfClass {
       throw new Error(`Cannot remove students from a graduated class.`);
     }
 
-    if (!this.students.find((s) => s.id === student.id)) {
+    if (!this.students.find((s) => s.name === student.name)) {
       throw new Error(
         `Student ${student.name} is not a member of ${this.name}.`
       );
     }
 
-    this.students = this.students.filter((s) => s.id !== student.id);
+    this.students = this.students.filter((s) => s.name !== student.name);
     student.setClass(null);
   }
 
@@ -65,10 +65,6 @@ class HyfClass {
     return this.students.filter((student) =>
       student.upperCaseName.includes(partialUpperCaseName)
     );
-  }
-
-  findStudentById(id) {
-    return this.students.find((student) => student.id === id);
   }
 }
 

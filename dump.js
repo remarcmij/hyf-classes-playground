@@ -8,9 +8,6 @@ function main() {
     console.log(`\nStudents of ${cls.name}:`);
     console.table(cls.students);
   });
-
-  // const students = hyf.findStudentsByName('satter');
-  // console.log(util.inspect(hyf, null, Infinity));
 }
 
 main();

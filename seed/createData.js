@@ -1,6 +1,6 @@
 import fs from 'fs';
 import moment from 'moment';
-import { faker } from '@faker-js/faker';
+import { faker } from '@faker-js/faker/locale/en';
 import HyfClass from '../classes/HyfClass.js';
 import HyfStudent from '../classes/HyfStudent.js';
 
@@ -42,7 +42,8 @@ function createFakeStudents(classes) {
 
   for (const cls of classes) {
     for (let i = 0; i < STUDENTS_PER_CLASS; i++) {
-      const student = new HyfStudent(faker.internet.userName());
+      const uniqueName = faker.helpers.unique(faker.internet.userName);
+      const student = new HyfStudent(uniqueName);
       student.className = cls.name;
       if (cls.graduationDate) {
         student.graduated = Math.random() < GRADUATION_FACTOR;

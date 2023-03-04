@@ -1,15 +1,8 @@
-import { v4 as uuidv4 } from 'uuid';
-
 class HyfStudent {
   constructor(name) {
     this.name = name;
-    this._id = uuidv4();
     this.hyfClass = null;
     this.graduated = null;
-  }
-
-  get id() {
-    return this._id;
   }
 
   get upperCaseName() {

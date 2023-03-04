@@ -33,17 +33,6 @@ class HyfOrganization {
     return students;
   }
 
-  findStudentById(id) {
-    let student = null;
-    for (const cls of this.classes) {
-      student = cls.findStudentById(id);
-      if (student) {
-        break;
-      }
-    }
-    return student;
-  }
-
   promoteStudent(student) {
     // TODO
   }
